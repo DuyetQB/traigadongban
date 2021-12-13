@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styled";
 import { Heading2, Text } from "components/common/Text";
-import BannerChicken from "./images/Banner-chicken-demo-psd1.png";
+import BannerChicken from "./images/banner-chickend.png";
 import { ReactComponent as IconSendFly } from "./images/icon-send.svg";
 import AppLayout from "components/AppLayout";
 
@@ -26,7 +26,7 @@ export default function AboutUs() {
                 </div>
                 <div className="row pt-3">
                   <div className="col-md-5">
-                    <Text size="18px" isGrey>
+                    <Text size="18px" isGrey margin="10px 0px">
                       {"+"} Chúng tôi là trang trại chuyên cung cấp gà thương
                       phẩm ,gà chọi , gà thả vườn , gà Asil Thái Lan với chất
                       lượng và giá tốt nhất trên thị trường . Bước đầu cung cấp

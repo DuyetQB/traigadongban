@@ -15,6 +15,6 @@ export const Loader = styled.div`
   vertical-align: top;
   & svg path,
   svg rect {
-    fill: #ff6700;
+    fill: ${({ theme }) => theme.colors.blue2};
   }
 `;

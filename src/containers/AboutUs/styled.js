@@ -27,6 +27,9 @@ export const WrapImage = styled.div`
 
 export const WrapIframe = styled.div`
   padding: 0px 30px;
+  ${media.smallPhone`
+  padding:20px 0px;
+  `}
 `;
 
 export const Iframe = styled.iframe`
