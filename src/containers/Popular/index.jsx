@@ -6,7 +6,7 @@ import ButtonArrow from "components/ButtonArrow";
 import ButtonAddToCart from "components/ButtonAddToCart";
 
 export default function Popular() {
-  const [products, setProducts] = useState([
+  const [products] = useState([
     {
       id: 1,
       name: "ga loai 1",

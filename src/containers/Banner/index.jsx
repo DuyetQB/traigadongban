@@ -23,7 +23,7 @@ export default function Banner() {
           </div>
           <div className="col-md-7">
             <S.WrapImage>
-              <img src={BannerChicken} alt="" />
+              <img src={BannerChicken} alt="image banner" />
             </S.WrapImage>
           </div>
         </div>

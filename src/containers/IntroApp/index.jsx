@@ -13,7 +13,7 @@ export default function Banner() {
                 Make The Delicious Food and Order Our App
               </Heading2>
               <Text isGrey>
-                Image you don't need a diet because we provide healthy and
+                Image you don{"'"}t need a diet because we provide healthy and
                 delicious food for you
               </Text>
               <S.WrapFlex>
@@ -42,7 +42,7 @@ export default function Banner() {
           </div>
           <div className="col-md-6">
             <S.WrapImage>
-              <img src="https://www.luxstay.com/home/home-02.png" alt="" />
+              <img src="https://www.luxstay.com/home/home-02.png" alt="order" />
             </S.WrapImage>
           </div>
         </div>

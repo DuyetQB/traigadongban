@@ -13,7 +13,7 @@ export default function AboutUs() {
           <div className="row">
             <div className="col-md-12">
               <S.WrapImage>
-                <img src={BannerChicken} alt="" />
+                <img src={BannerChicken} alt="imagechickenbanner" />
               </S.WrapImage>
             </div>
             <div className="col-md-12">
