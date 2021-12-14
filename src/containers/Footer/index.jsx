@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./styled";
-import Logo from "images/dongban-psd.png";
+import Logo from "images/logo-chicken-4.png";
 import { NavLink, Link } from "react-router-dom";
 import { Text, Heading3 } from "components/common/Text";
 

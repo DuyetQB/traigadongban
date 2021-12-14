@@ -1,8 +1,8 @@
 import React from "react";
 import * as S from "./styled";
 // import Logo from "images/logo-chicken-3.png";
-import Logo from "images/dongban-psd.png";
-// import Logo from "images/dongban-brand.png";
+// import Logo from "images/dongban-psd.png";
+import Logo from "images/logo-chicken-4.png";
 import { NavLink } from "react-router-dom";
 import { ReactComponent as IconCart } from "images/icon-cart.svg";
 import { ReactComponent as IconSearch } from "images/icon-search.svg";
