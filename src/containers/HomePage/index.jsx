@@ -17,11 +17,8 @@ const Home = () => {
       <Banner />
       <Popular />
       <HowToOrder />
-      <IntroCook />
-      <IntroApp />
       <ClientsSaid />
       <Article />
-
       <Cart />
     </AppLayout>
   );

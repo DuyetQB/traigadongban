@@ -87,7 +87,7 @@ export default function HowToOrder() {
                       <S.CircleNumber>4</S.CircleNumber>
                     </div>
                     <Text size="21px" mt="30px" weight="600">
-                      Sản phẩm sẽ được vận chuyển tới nơi{" "}
+                      Sản phẩm sẽ được vận chuyển tới bạn{" "}
                     </Text>
                   </S.ImageItem>
                 </div>

@@ -1,10 +1,14 @@
 import styled from "styled-components";
+import { media } from "styles/breakPoint";
 
 export const WrapClientSaid = styled.div`
-  padding: 20px 0px;
+  padding: 60px 0px;
 `;
 export const WrapText = styled.div`
   padding: 20px 60px 20px 20px;
+  ${media.smallPhone`
+  padding:20px;
+  `}
 `;
 export const WrapImage = styled.div``;
 
@@ -37,6 +41,9 @@ export const ButtonSlide = styled.div`
   right: 30px;
   bottom: 0px;
   flex: 2;
+  ${media.smallPhone`
+  bottom: -70px;
+  `}
   .active {
     background: linear-gradient(
       70deg,

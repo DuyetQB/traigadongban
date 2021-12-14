@@ -3,7 +3,7 @@ import * as S from "./styled";
 // import Logo from "images/logo-chicken-3.png";
 import Logo from "images/dongban-psd.png";
 // import Logo from "images/dongban-brand.png";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { ReactComponent as IconCart } from "images/icon-cart.svg";
 import { ReactComponent as IconSearch } from "images/icon-search.svg";
 import { ReactComponent as IconMenuHamburger } from "images/icon-menu-hamburger.svg";

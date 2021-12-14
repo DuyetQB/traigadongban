@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./styled";
+import ButtonArrow from "components/ButtonArrow";
 import { Heading2, Heading3, Text } from "components/common/Text";
 import IconArrowRight from "images/icon-long-arrow-right.png";
 
@@ -33,12 +34,12 @@ export default function Banner() {
           <div className="col-md-8">
             <S.WrapText>
               <Heading2 padding="40px 0px 0px 0px" size="30px">
-                Articles and useful tips
+                Các bài viết và thủ thuật hữu ích
               </Heading2>
               <Text isGrey>
-                Read for useful information about tasty and healthy food .
-                Interesting events and recipes . New meal plans and specialized
-                diets for weight loss or gain
+                Đọc những bài viết về cách nuôi gà , chọn gà chọi như thế nào ,
+                cách làm những món ăn ngon từ gà , cách nhận biết gà Asil Thái
+                Lan .
               </Text>
             </S.WrapText>
           </div>
@@ -124,6 +125,14 @@ export default function Banner() {
             </S.WrapArticleItem>
           </div>
         </div>
+        <S.SeeAllMenu>
+          <ButtonArrow
+            btntext="Xem tất cả"
+            right="unset"
+            padding="10px 21px"
+            shadow
+          />
+        </S.SeeAllMenu>
       </S.WrapArticle>
     </div>
   );

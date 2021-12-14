@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { media } from "styles/breakPoint";
 
 export const WrapArticle = styled.div`
-  padding: 20px 0px;
+  padding: 20px 0px 60px 0px;
 `;
 export const WrapText = styled.div`
   padding: 20px;
@@ -63,4 +63,11 @@ export const Video = styled.video`
   width: 300px;
 
   -webkit-mask-box-image: url("https://media.flaticon.com/dist/min/img/video/sad/mask.svg");
+`;
+
+export const SeeAllMenu = styled.div`
+  padding: 60px 0px;
+  position: relative;
+  display: flex;
+  justify-content: center;
 `;

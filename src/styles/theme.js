@@ -2,6 +2,7 @@ const colors = {
   white1: "#FFFFFF",
   grey1: "#EAEAEA",
   grey2: "#7d7777",
+  grey3: "#f5f5f5",
   greenSky1: "#7CD2D7",
   greenSky2: "#B1D9DB",
   greenSky3: "#EEF2FE",

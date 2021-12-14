@@ -14,13 +14,15 @@ export default function Banner() {
   const [activeRight, setActiveRight] = useState("active");
   const [activeLeft, setActiveLeft] = useState();
   const slideRef = useRef();
+  const slideTextRef = useRef();
   const settings = {
     arrows: true,
     infinite: true,
     autoplay: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
+    pauseOnHover: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -45,6 +47,15 @@ export default function Banner() {
         },
       },
     ],
+  };
+
+  const settingsText = {
+    infinite: true,
+    autoplay: true,
+    speed: 600,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    pauseOnHover: false,
   };
 
   const nextSlide = () => {
@@ -84,21 +95,32 @@ export default function Banner() {
             <S.Inner>
               <S.WrapText>
                 <Heading2 padding="40px 0px 0px 0px" size="30px">
-                  What Our clients say about us
+                  Khách hàng đã nói về chúng tôi?
                 </Heading2>
-                <Text size="18px" isGrey mt="20px">
-                  I am grateful to the company for the timely and exceptionally
-                  accurate delivery of food . Everything is very tasty and hight
-                  quality . And it follows that the weight loss plan i have
-                  chosen really works ! I was surpriced
-                </Text>
+                <Slider {...settingsText} ref={slideTextRef}>
+                  <Text size="18px" isGrey mt="20px">
+                    Tôi cảm thấy hạnh phúc khi mua gà tại đây . Đây đúng là một
+                    nơi cung cấp gà giá tốt mà lại còn giao hàng trong thời gian
+                    nhanh nữa chứ
+                  </Text>
+                  <Text size="18px" isGrey mt="20px">
+                    Ưng ý lắm nha . Giao hàng nhanh lắm . Cho 5 sao nhá{" "}
+                    {" :)))"}
+                  </Text>
+                  <Text size="18px" isGrey mt="20px">
+                    Mỗi khi nhà có dịp cỗ , hay đến Tết . Tôi thường đau đầu vì
+                    không tìm được nguồn gà sạch và giá tốt . May mắn mà trại gà
+                    ra đời . Nó đã giúp chúng tôi tiết kiệm được thời gian và
+                    tiền bạc rất nhiều .
+                  </Text>
+                </Slider>
               </S.WrapText>
               <Slider {...settings} ref={slideRef}>
                 <S.ClientSlide>
                   <S.ImageProfile src={ImageUserProfile} alt="" />
                   <S.UserInfor>
-                    <Heading3>Seona PalmSmith,</Heading3>
-                    <Text>Dixon Corp</Text>
+                    <Heading3>Thanh Hiếu </Heading3>
+                    <Text>Khách hàng</Text>
                     <i className="fa fa-star me-2"></i>
                     <i className="fa fa-star me-2"></i>
                     <i className="fa fa-star me-2"></i>
@@ -109,8 +131,8 @@ export default function Banner() {
                 <S.ClientSlide>
                   <S.ImageProfile src={ImageUserProfile2} alt="" />
                   <S.UserInfor>
-                    <Heading3>Seona PalmSmith,</Heading3>
-                    <Text>Dixon Corp</Text>
+                    <Heading3>Quốc Nghĩa </Heading3>
+                    <Text>Khách hàng</Text>
                     <i className="fa fa-star me-2"></i>
                     <i className="fa fa-star me-2"></i>
                     <i className="fa fa-star me-2"></i>
@@ -121,8 +143,8 @@ export default function Banner() {
                 <S.ClientSlide>
                   <S.ImageProfile src={ImageUserProfile3} alt="" />
                   <S.UserInfor>
-                    <Heading3>Seona PalmSmith,</Heading3>
-                    <Text>Dixon Corp</Text>
+                    <Heading3>Thanh Thanh </Heading3>
+                    <Text>Khách hàng </Text>
                     <i className="fa fa-star me-2"></i>
                     <i className="fa fa-star me-2"></i>
                     <i className="fa fa-star me-2"></i>
