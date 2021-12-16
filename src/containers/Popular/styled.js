@@ -22,7 +22,7 @@ export const ProductItem = styled.div`
  position: relative;
   color: ${({ theme }) => theme.colors.white1};
   ${media.tablet`
-  margin: 5px;
+  margin: 10px;
   padding: 5px;
   `}
   ${media.smallPhone`

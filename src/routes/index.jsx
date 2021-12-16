@@ -5,6 +5,7 @@ const HomePage = lazy(() => import("containers/HomePage"));
 const LoginPage = lazy(() => import("containers/LoginPage"));
 const RegisterPage = lazy(() => import("containers/RegisterPage"));
 const AboutUsPage = lazy(() => import("containers/AboutUs"));
+const SupportPage = lazy(() => import("containers/Support"));
 
 const index = () => {
   return (
@@ -16,6 +17,7 @@ const index = () => {
             <Route exact path="/about-us" element={<AboutUsPage />} />
             <Route exact path="/login" element={<LoginPage />} />
             <Route exact path="/register" element={<RegisterPage />} />
+            <Route exact path="/support" element={<SupportPage />} />
           </Routes>
         </Router>
       </Suspense>

@@ -36,7 +36,7 @@ export default function Footer() {
               <S.WrapLinks>
                 <li>
                   <Heading3 size="17px" weight="700">
-                    Liên kết nhanh
+                    Liên hệ
                   </Heading3>
                 </li>
                 <li>
@@ -49,7 +49,18 @@ export default function Footer() {
                 </li>
               </S.WrapLinks>
             </div>
-            <div className="col-md-3"></div>
+            <div className="col-md-3">
+              <S.WrapLinks>
+                <li>
+                  <Heading3 size="17px" weight="700">
+                    Hỗ trợ
+                  </Heading3>
+                </li>
+                <li>
+                  <Link to="/support">Báo cáo sự cố </Link>
+                </li>
+              </S.WrapLinks>
+            </div>
           </div>
         </S.Inner>
         <S.CopyRight>

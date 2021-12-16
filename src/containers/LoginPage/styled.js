@@ -4,7 +4,6 @@ import { media } from "styles/breakPoint";
 export const Wrapper = styled.div`
   padding: 14px 30px 30px 90px;
   background: ${({ theme }) => theme.colors.white1};
-  border-radius: 30px 0px 0px 30px;
   height: 100vh;
   ${media.phone`
   padding: 14px 30px 30px 30px;

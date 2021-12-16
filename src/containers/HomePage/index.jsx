@@ -2,8 +2,6 @@ import React from "react";
 import Banner from "containers/Banner";
 import HowToOrder from "containers/HowToOrder";
 import Popular from "containers/Popular";
-import IntroCook from "containers/IntroCook";
-import IntroApp from "containers/IntroApp";
 import ClientsSaid from "containers/ClientsSaid";
 import Article from "containers/Article";
 import Cart from "containers/Cart";

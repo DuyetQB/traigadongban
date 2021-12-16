@@ -81,3 +81,52 @@ export const WrapIconsMobile = styled.div`
 export const WrapIconHamburger = styled.div`
   cursor: pointer;
 `;
+
+export const WrapNavMobile = styled.ul`
+  position: absolute;
+  width: 70%;
+  top: 63px;
+  right: 20px;
+  padding: 20px;
+  background: ${({ theme }) => theme.colors.white1};
+  z-index: 10;
+  box-shadow: ${({ theme }) => theme.boxShadow.buttonBox};
+  ${"" /* border: 1px solid ${({ theme }) => theme.colors.grey1}; */}
+  & li {
+    padding: 10px 0px;
+    & a {
+      display: block;
+      color: ${({ theme }) => theme.colors.black};
+      border-bottom: 2px solid ${({ theme }) => theme.colors.grey1};
+
+      &:hover {
+        border-bottom: 2px solid ${({ theme }) => theme.colors.blue2};
+      }
+    }
+    & .active {
+      border-bottom: 2px solid ${({ theme }) => theme.colors.blue2};
+    }
+  }
+`;
+
+export const BackDrop = styled.div`
+  background: rgba(0, 0, 0, 0.3);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0px;
+  right: 0;
+  z-index: 2;
+`;
+
+export const WrapIconClose = styled.div`
+  cursor: pointer;
+  position: absolute;
+  right: 16px;
+  top: 10px;
+  & i {
+    color: ${({ theme }) => theme.colors.red};
+    font-size: ${({ theme }) => theme.fontSize.md};
+  }
+`;
