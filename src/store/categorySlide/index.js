@@ -1,35 +1,48 @@
-const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
-import { getList15CategoryApi, pickCategoryFavoriteApi, getCategoriesOver15Api } from 'services/apis/category';
+import {
+  getList15CategoryApi,
+  pickCategoryFavoriteApi,
+  getCategoriesOver15Api,
+} from "services/apis/category";
+const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
-export const getList15Category = createAsyncThunk('category/GET_LIST_15_CATEGORY', async () => {
-  try {
-    const response = await getList15CategoryApi();
-    return response.data;
-  } catch (error) {
-    return Promise.reject(error.data);
+export const getList15Category = createAsyncThunk(
+  "category/GET_LIST_15_CATEGORY",
+  async () => {
+    try {
+      const response = await getList15CategoryApi();
+      return response.data;
+    } catch (error) {
+      return Promise.reject(error.data);
+    }
   }
-});
+);
 
-export const getCategoriesOver15 = createAsyncThunk('category/GET_LIST_CATEGORY_OVER15', async () => {
-  try {
-    const response = await getCategoriesOver15Api();
-    return response.data;
-  } catch (error) {
-    return Promise.reject(error.data);
+export const getCategoriesOver15 = createAsyncThunk(
+  "category/GET_LIST_CATEGORY_OVER15",
+  async () => {
+    try {
+      const response = await getCategoriesOver15Api();
+      return response.data;
+    } catch (error) {
+      return Promise.reject(error.data);
+    }
   }
-});
+);
 
-export const pickCategoryFavorite = createAsyncThunk('category/PICK_CATEGORY_FAVORITE', async (data) => {
-  try {
-    const response = await pickCategoryFavoriteApi(data);
-    return response.data;
-  } catch (error) {
-    return Promise.reject(error.data);
+export const pickCategoryFavorite = createAsyncThunk(
+  "category/PICK_CATEGORY_FAVORITE",
+  async (data) => {
+    try {
+      const response = await pickCategoryFavoriteApi(data);
+      return response.data;
+    } catch (error) {
+      return Promise.reject(error.data);
+    }
   }
-});
+);
 
 const categorySlide = createSlice({
-  name: 'category',
+  name: "category",
   initialState: {
     categories: [],
     categoriesOver15: [],

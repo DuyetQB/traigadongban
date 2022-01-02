@@ -1,9 +1,14 @@
-const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
-import { getProfileApi, updateProfileApi, uploadAvatarApi, getCategoriesProfileApi } from 'services/apis/user';
-import { getMe } from 'store/authSlide';
-import _omit from 'lodash/omit';
+import {
+  getProfileApi,
+  updateProfileApi,
+  uploadAvatarApi,
+  getCategoriesProfileApi,
+} from "services/apis/user";
+import { getMe } from "store/authSlide";
+import _omit from "lodash/omit";
+const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
-export const getProfile = createAsyncThunk('user/GET_PROFILE', async () => {
+export const getProfile = createAsyncThunk("user/GET_PROFILE", async () => {
   try {
     const response = await getProfileApi();
     return response.data;
@@ -12,42 +17,52 @@ export const getProfile = createAsyncThunk('user/GET_PROFILE', async () => {
   }
 });
 
-export const uploadAvatar = createAsyncThunk('user/UPLOAD_AVATAR', async (data) => {
-  try {
-    const response = await uploadAvatarApi(data);
-    return response.data;
-  } catch (error) {
-    return Promise.reject(error.data);
+export const uploadAvatar = createAsyncThunk(
+  "user/UPLOAD_AVATAR",
+  async (data) => {
+    try {
+      const response = await uploadAvatarApi(data);
+      return response.data;
+    } catch (error) {
+      return Promise.reject(error.data);
+    }
   }
-});
+);
 
-export const updateProfile = createAsyncThunk('user/UPDATE_PROFILE', async (data, thunkAPI) => {
-  try {
-    const formData = {
-      ..._omit(data, ['country', 'category', 'category_follow']),
-      country_id: data.country?.value,
-      category_follow_ids: data.category_follow_ids?.map((item) => item.value) || null,
-    };
+export const updateProfile = createAsyncThunk(
+  "user/UPDATE_PROFILE",
+  async (data, thunkAPI) => {
+    try {
+      const formData = {
+        ..._omit(data, ["country", "category", "category_follow"]),
+        country_id: data.country?.value,
+        category_follow_ids:
+          data.category_follow_ids?.map((item) => item.value) || null,
+      };
 
-    const response = await updateProfileApi(formData);
-    thunkAPI.dispatch(getMe());
-    return response.data;
-  } catch (error) {
-    return Promise.reject(error.data);
+      const response = await updateProfileApi(formData);
+      thunkAPI.dispatch(getMe());
+      return response.data;
+    } catch (error) {
+      return Promise.reject(error.data);
+    }
   }
-});
+);
 
-export const getCategoriesProfile = createAsyncThunk('user/GET_CATEGORIES_PROFILE', async () => {
-  try {
-    const response = await getCategoriesProfileApi();
-    return response.data;
-  } catch (error) {
-    return Promise.reject(error.data);
+export const getCategoriesProfile = createAsyncThunk(
+  "user/GET_CATEGORIES_PROFILE",
+  async () => {
+    try {
+      const response = await getCategoriesProfileApi();
+      return response.data;
+    } catch (error) {
+      return Promise.reject(error.data);
+    }
   }
-});
+);
 
 const userSlide = createSlice({
-  name: 'user',
+  name: "user",
   initialState: {
     profileInfo: {},
     categoriesProfile: [],

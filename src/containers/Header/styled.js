@@ -70,6 +70,7 @@ export const WrapIconSearch = styled.div`
 
 export const WrapIconCart = styled.div`
   cursor: pointer;
+  position: relative;
 `;
 export const WrapIconsMobile = styled.div`
   & div {
@@ -130,3 +131,5 @@ export const WrapIconClose = styled.div`
     font-size: ${({ theme }) => theme.fontSize.md};
   }
 `;
+
+

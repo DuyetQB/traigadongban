@@ -29,7 +29,7 @@ function ButtonAddToCart({ handleClick, children, ...rest }) {
   }, [textBubble]);
   return (
     <>
-      <S.AddToCart onClick={handleAddToCart}>
+      <S.AddToCart {...rest}>
         {children}
         {textBubble ? (
           <span

@@ -1,10 +1,10 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-unused-vars */
-const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
-import webStorage from 'utils/webStorage';
-import { loginApi, getMeApi, logoutApi, signUpApi } from 'services/apis/auth';
+import webStorage from "utils/webStorage";
+import { loginApi, getMeApi, logoutApi, signUpApi } from "services/apis/auth";
+const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
-export const login = createAsyncThunk('auth/LOGIN', async (data) => {
+export const login = createAsyncThunk("auth/LOGIN", async (data) => {
   try {
     const response = await loginApi(data);
     return response.data;
@@ -13,27 +13,30 @@ export const login = createAsyncThunk('auth/LOGIN', async (data) => {
   }
 });
 
-export const signUp = createAsyncThunk('user/SIGN_UP', async (data, { rejectWithValue }) => {
-  try {
-    const response = await signUpApi(data);
-    return response.data;
-  } catch (error) {
-    return rejectWithValue(error.data);
+export const signUp = createAsyncThunk(
+  "user/SIGN_UP",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await signUpApi(data);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.data);
+    }
   }
-});
+);
 
-export const logout = createAsyncThunk('auth/LOGOUT', async () => {
+export const logout = createAsyncThunk("auth/LOGOUT", async () => {
   const response = await logoutApi();
   return response.data;
 });
 
-export const getMe = createAsyncThunk('auth/GET_ME', async () => {
+export const getMe = createAsyncThunk("auth/GET_ME", async () => {
   const response = await getMeApi();
   return response.data;
 });
 
 const authSlide = createSlice({
-  name: 'auth',
+  name: "auth",
   initialState: {
     currentUser: {},
     isAuth: false,

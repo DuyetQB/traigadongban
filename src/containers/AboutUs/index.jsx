@@ -4,6 +4,7 @@ import { Heading2, Text } from "components/common/Text";
 import BannerChicken from "./images/banner-chickend.png";
 import { ReactComponent as IconSendFly } from "./images/icon-send.svg";
 import AppLayout from "components/AppLayout";
+import ClientsSaid from "containers/ClientsSaid";
 
 export default function AboutUs() {
   return (
@@ -92,6 +93,7 @@ export default function AboutUs() {
           </div>
         </S.WrapAboutUs>
       </div>
+      <ClientsSaid/>
     </AppLayout>
   );
 }

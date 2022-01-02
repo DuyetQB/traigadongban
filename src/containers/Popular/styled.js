@@ -71,3 +71,15 @@ export const SeeAllMenu = styled.div`
   display: flex;
   justify-content: center;
 `;
+
+
+export const WrapFloatListCart = styled.div`
+  padding: 20px ;
+ position:fixed;
+ right:30px;
+ top:150px;
+ background:${({ theme }) => theme.colors.white1};
+ box-shadow: ${({ theme }) => theme.boxShadow.buttonBox};
+ width:30%;
+ height:auto;
+`;

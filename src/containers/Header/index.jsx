@@ -7,6 +7,7 @@ import { ASSET_URL } from "constants/configs";
 
 import Logo from "images/logo-chicken-4.png";
 import Avata from "./images/user.png";
+import WrapNumCart from "components/Numcart";
 
 import { ReactComponent as IconCart } from "images/icon-cart.svg";
 import { ReactComponent as IconSearch } from "images/icon-search.svg";
@@ -30,6 +31,15 @@ export default function Header() {
   const handleBoxCartShow = () => {
     setIsBoxCartShow(!isBoxCartShow);
   };
+
+  // useEffect(() => {
+  //   if (objectProduct.number === 0) {
+  //     setIsBoxCartShow(false);
+  //   } else {
+  //     setIsBoxCartShow(true);
+  //   }
+  // }, []);
+
   return (
     <S.Header>
       <div className="container">
@@ -57,8 +67,9 @@ export default function Header() {
                 <NavLink to="/login">Đăng nhập</NavLink>
               </li>
               <li>
-                <S.WrapIconCart>
+                <S.WrapIconCart onClick={handleBoxCartShow}>
                   <IconCart />
+                  <WrapNumCart />
                 </S.WrapIconCart>
               </li>
               <li>
@@ -73,8 +84,9 @@ export default function Header() {
               <S.WrapIconSearch>
                 <IconSearch />
               </S.WrapIconSearch>
-              <S.WrapIconCart>
+              <S.WrapIconCart onClick={handleBoxCartShow}>
                 <IconCart />
+                <WrapNumCart />
               </S.WrapIconCart>
               <S.WrapIconHamburger>
                 <IconMenuHamburger onClick={handleNavShow} />

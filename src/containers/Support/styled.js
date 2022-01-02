@@ -48,3 +48,9 @@ export const Text = styled.span`
   font-size: ${({ theme }) => theme.fontSize.xl};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
+
+
+export const Flexend = styled.div`
+ display: flex;
+ justify-content: flex-end;
+`;

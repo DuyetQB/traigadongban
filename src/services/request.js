@@ -1,12 +1,12 @@
-import axios from 'axios';
-import queryString from 'query-string';
+import axios from "axios";
+import queryString from "query-string";
 
-import webStorage from 'utils/webStorage';
+import webStorage from "utils/webStorage";
 
 const baseApiConfig = {
   baseURL: `${process.env.REACT_APP_API_URL}/api/v1`,
   headers: {
-    'content-type': 'application/json',
+    "content-type": "application/json",
   },
   timeout: 60000, // 60s
   paramsSerializer: (params) => queryString.stringify(params),
@@ -25,7 +25,7 @@ const request = ({ isAuth = false, ...options }) => {
   const onSuccess = (response) => response;
   const onError = (error) => {
     if (error.response.status === SESSION_EXPIRED_STATUS_CODE) {
-      localStorage.removeItem('access_token');
+      localStorage.removeItem("access_token");
     }
 
     return Promise.reject(error.response);

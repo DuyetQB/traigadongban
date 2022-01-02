@@ -1,26 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import * as S from "./styled";
+import { ProductsConText } from "containers/Popular";
 
-export default function Cart() {
-  const [isShow, setIsShow] = useState(false);
+export default function WrapFloatListCart({ currentState }) {
+  const [isShow, setIsShow] = useState(true);
   const handleShow = () => {
     setIsShow(!isShow);
   };
+  const objectProduct = useContext(ProductsConText);
+
+  console.log("objectProduct ben cart", objectProduct);
+
+  useEffect(() => {});
   return (
     <>
-      <S.CartIconFloat onClick={() => handleShow()}>
-        <i className="fas fa-bars"></i>
-        {isShow && (
-          <S.Lists>
-            <li>
-              <S.Link to="/login">Login</S.Link>
-            </li>
-            <li>
-              <S.Link to="/register">Sign Up</S.Link>
-            </li>
-          </S.Lists>
+      <S.WrapFloatListCart onClick={() => handleShow()}>
+        {objectProduct !== undefined ? (
+          <div style={{ padding: "70px 0px" }}>
+            <h2>name:{objectProduct.product.name} </h2>
+            <h4>price:{objectProduct.product.price}</h4>
+            <img
+              src={objectProduct.product.image}
+              alt="image product"
+              style={{ width: "120px", height: "120px" }}
+            />
+          </div>
+        ) : (
+          <h2>Khong co sp</h2>
         )}
-      </S.CartIconFloat>
+      </S.WrapFloatListCart>
     </>
   );
 }

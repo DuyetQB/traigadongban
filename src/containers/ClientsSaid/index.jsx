@@ -83,7 +83,7 @@ export default function Banner() {
   };
 
   return (
-    <div className="container">
+    <>
       <S.WrapClientSaid>
         <div className="row">
           <div className="col-md-5">
@@ -171,6 +171,6 @@ export default function Banner() {
           </div>
         </div>
       </S.WrapClientSaid>
-    </div>
+    </>
   );
 }

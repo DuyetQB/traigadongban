@@ -1,17 +1,20 @@
-const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
-import { getCountriesApi } from 'services/apis/country';
+import { getCountriesApi } from "services/apis/country";
+const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
-export const getCountries = createAsyncThunk('country/GET_COUNTRIES', async () => {
-  try {
-    const response = await getCountriesApi();
-    return response.data;
-  } catch (error) {
-    return Promise.reject(error.data);
+export const getCountries = createAsyncThunk(
+  "country/GET_COUNTRIES",
+  async () => {
+    try {
+      const response = await getCountriesApi();
+      return response.data;
+    } catch (error) {
+      return Promise.reject(error.data);
+    }
   }
-});
+);
 
 const countrySlide = createSlice({
-  name: 'country',
+  name: "country",
   initialState: {
     countries: [],
     loading: false,
