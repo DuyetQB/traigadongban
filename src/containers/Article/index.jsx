@@ -1,14 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as S from "./styled";
+import { Link } from "react-router-dom";
 import ButtonArrow from "components/ButtonArrow";
 import { Heading2, Heading3, Text } from "components/common/Text";
 import IconArrowRight from "images/icon-long-arrow-right.png";
+import axios from "axios";
 
 export default function Banner() {
   const [isShow, setIsShow] = useState(false);
+  const [dataArticle, setDataArticle] = useState([]);
   const hansleShow = () => {
     setIsShow(!isShow);
   };
+
+  useEffect(() => {
+    const getArticlePost = async () => {
+      try {
+        const response = await axios.get(
+          "https://60b1dcdf62ab150017ae1584.mockapi.io/demo/traiga/"
+        );
+
+        console.log("res", response.data);
+        setDataArticle(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getArticlePost();
+  }, []);
+
   return (
     <div className="container">
       {isShow && (
@@ -46,81 +66,34 @@ export default function Banner() {
           <div className="col-md-12">
             <S.WrapArticleItem>
               <div className="row">
-                <div className="col-md-4">
-                  <S.ArticleItem>
-                    <S.ArticleItemImage
-                      src="https://images.pexels.com/photos/1579926/pexels-photo-1579926.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                      alt=""
-                    />
-                    <Heading3 weight="700" mt="20px">
-                      New seafood recipe perfect for losing weight
-                    </Heading3>
-                    <Text mt="20px">
-                      Mass communication has led to modern marketing strategles
-                      to continue focusing on brand awareness
-                    </Text>
-                    <div className="d-flex align-items-center">
-                      <Text margin="0px 10px 0px 0px" weight="700">
-                        Read more
+                {dataArticle.map((item) => (
+                  <div className="col-md-4" key={item.id}>
+                    <S.ArticleItem>
+                      <Link to={`/article/${item.id}`}>
+                        <S.ArticleItemImage src={item.avatar} alt="" />
+                      </Link>
+                      <Heading3 weight="700" mt="20px">
+                        {item.title}
+                      </Heading3>
+                      <Text mt="20px" $truncate>
+                        {item.details}
                       </Text>
-                      <img
-                        src={IconArrowRight}
-                        alt=""
-                        style={{ width: "30px" }}
-                      />
-                    </div>
-                  </S.ArticleItem>
-                </div>
-                <div className="col-md-4">
-                  <S.ArticleItem>
-                    <S.ArticleItemImage
-                      src="https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                      alt=""
-                    />
-                    <Heading3 weight="700" mt="20px">
-                      Balance of proteins , fats and carbo . How do I get it ?
-                    </Heading3>
-                    <Text mt="20px">
-                      Mass communication has led to modern marketing strategles
-                      to continue focusing on brand awareness
-                    </Text>
-                    <div className="d-flex align-items-center">
-                      <Text margin="0px 10px 0px 0px" weight="700">
-                        Read more
-                      </Text>
-                      <img
-                        src={IconArrowRight}
-                        alt=""
-                        style={{ width: "30px" }}
-                      />
-                    </div>
-                  </S.ArticleItem>
-                </div>
-                <div className="col-md-4">
-                  <S.ArticleItem>
-                    <S.ArticleItemImage
-                      src="https://images.pexels.com/photos/2641886/pexels-photo-2641886.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                      alt=""
-                    />
-                    <Heading3 weight="700" mt="20px">
-                      The importance of proper and healthy eating
-                    </Heading3>
-                    <Text mt="20px">
-                      Large distribution and heavy promotions . The fast - paced
-                      environment of digital payment service .
-                    </Text>
-                    <div className="d-flex align-items-center">
-                      <Text margin="0px 10px 0px 0px" weight="700">
-                        Read more
-                      </Text>
-                      <img
-                        src={IconArrowRight}
-                        alt=""
-                        style={{ width: "30px" }}
-                      />
-                    </div>
-                  </S.ArticleItem>
-                </div>
+
+                      <Link to={`/article/${item.id}`}>
+                        <div className="d-flex align-items-center">
+                          <Text margin="0px 10px 0px 0px" weight="700">
+                            Read more
+                          </Text>
+                          <img
+                            src={IconArrowRight}
+                            alt=""
+                            style={{ width: "30px" }}
+                          />
+                        </div>
+                      </Link>
+                    </S.ArticleItem>
+                  </div>
+                ))}
               </div>
             </S.WrapArticleItem>
           </div>

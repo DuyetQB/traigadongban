@@ -6,6 +6,10 @@ const LoginPage = lazy(() => import("containers/LoginPage"));
 const RegisterPage = lazy(() => import("containers/RegisterPage"));
 const AboutUsPage = lazy(() => import("containers/AboutUs"));
 const SupportPage = lazy(() => import("containers/Support"));
+const ArticlePostDetailsPage = lazy(() =>
+  import("containers/ArticlePostDetails")
+);
+const ArticlePage = lazy(() => import("containers/Article"));
 
 const index = () => {
   return (
@@ -18,6 +22,11 @@ const index = () => {
             <Route exact path="/login" element={<LoginPage />} />
             <Route exact path="/register" element={<RegisterPage />} />
             <Route exact path="/support" element={<SupportPage />} />
+            <Route exact path="/article" element={<ArticlePage />} />
+            <Route
+              path="/article/:userId"
+              element={<ArticlePostDetailsPage />}
+            />
           </Routes>
         </Router>
       </Suspense>

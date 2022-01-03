@@ -101,4 +101,22 @@ export const Text = styled.p`
     css`
       font-weight: ${weight};
     `}
+
+
+    ${({ $line }) =>
+    $line &&
+    css`
+      -webkit-line-clamp: ${$line} !important;
+    `};
+
+  ${({ $truncate }) =>
+    $truncate &&
+    css`
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    `};
 `;
