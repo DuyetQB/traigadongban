@@ -15,7 +15,7 @@ function ArticlePostDetails() {
         const post = await axios.get(
           `https://60b1dcdf62ab150017ae1584.mockapi.io/demo/traiga/${userId}`
         );
-        console.log("post", post.data);
+
         setUser(post.data);
       } catch (err) {
         console.log(err);

@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { schemaValidateSignIn } from "./constants";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 import Input from "components/Form/InputField";
 import InputPassWord from "components/Form/PasswordField";
@@ -17,6 +18,8 @@ import IconGg from "images/logo-google.png";
 import ImageFloat from "images/image-sign-up.png";
 const Login = () => {
   const [isShow, setIsShow] = useState(false);
+  const Navigate = useNavigate();
+
   const { t, i18n } = useTranslation("common");
   const [textLanguage, setTextLanguage] = useState(() => i18n.language);
   const {
@@ -26,7 +29,11 @@ const Login = () => {
   } = useForm({
     resolver: yupResolver(schemaValidateSignIn),
   });
-  const onSubmit = (data) => {};
+  const onSubmit = (data, event) => {
+    event.preventDefault();
+    localStorage.setItem("accessToken", true);
+    Navigate("/admin");
+  };
 
   const handleLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -48,6 +55,7 @@ const Login = () => {
       setTextLanguage("English");
     }
   }, [i18n.language]);
+
   return (
     <>
       <AppLayout>

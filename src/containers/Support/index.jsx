@@ -15,7 +15,7 @@ export default function Support() {
         <div className="row">
           <div className="col-md-12">
             <S.WrapImage>
-              <img src={ImageSupport} alt="image banner" />
+              <S.ImageSupport src={ImageSupport} alt="image support" />
             </S.WrapImage>
           </div>
           <div className="col-md-5">

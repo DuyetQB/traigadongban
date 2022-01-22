@@ -41,6 +41,7 @@ export const WrapFormSupport = styled.form`
   }
 `;
 
+export const ImageSupport = styled.img``;
 export const Text = styled.span`
   padding: 0.5em;
   margin: 20px 0px;
@@ -49,8 +50,7 @@ export const Text = styled.span`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
 
-
 export const Flexend = styled.div`
- display: flex;
- justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 `;

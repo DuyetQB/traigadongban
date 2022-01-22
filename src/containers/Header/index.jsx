@@ -1,52 +1,48 @@
-import React, { useState } from "react";
-import * as S from "./styled";
+import React, { useState } from 'react';
+import * as S from './styled';
 
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { ASSET_URL } from "constants/configs";
+import { NavLink, useNavigate } from 'react-router-dom';
 
-import Logo from "images/logo-chicken-4.png";
-import Avata from "./images/user.png";
-import WrapNumCart from "components/Numcart";
-
-import { ReactComponent as IconCart } from "images/icon-cart.svg";
-import { ReactComponent as IconSearch } from "images/icon-search.svg";
-import { ReactComponent as IconMenuHamburger } from "images/icon-menu-hamburger.svg";
+import { CartState } from 'store/ContextApi';
+import Logo from 'images/logo-chicken-4.png';
+// import Avata from "./images/user.png";
+import WrapNumCart from 'components/Numcart';
+import { AiFillDelete } from 'react-icons/ai';
+import Button from 'components/Button';
+import { ReactComponent as IconCart } from 'images/icon-cart.svg';
+import { ReactComponent as IconSearch } from 'images/icon-search.svg';
+import { ReactComponent as IconMenuHamburger } from 'images/icon-menu-hamburger.svg';
 
 export default function Header() {
-  // const isAuth = useSelector((state) => state.authReducer.isAuth);
-  // const currentUser = useSelector((state) => state.authReducer.currentUser);
-
+  const Navigate = useNavigate();
   const [isNavShow, setIsNavShow] = useState(false);
-  const [isBoxSearchShow, setIsBoxSearchShow] = useState(false);
+  // const [isBoxSearchShow, setIsBoxSearchShow] = useState(false);
   const [isBoxCartShow, setIsBoxCartShow] = useState(false);
 
   const handleNavShow = () => {
     setIsNavShow(!isNavShow);
   };
 
-  const handleBoxSearchShow = () => {
-    setIsBoxSearchShow(!isBoxSearchShow);
-  };
+  // const handleBoxSearchShow = () => {
+  //   setIsBoxSearchShow(!isBoxSearchShow);
+  // };
   const handleBoxCartShow = () => {
     setIsBoxCartShow(!isBoxCartShow);
   };
+  const handleDirectToCart = () => {
+    Navigate('/cart');
+  };
 
-  // useEffect(() => {
-  //   if (objectProduct.number === 0) {
-  //     setIsBoxCartShow(false);
-  //   } else {
-  //     setIsBoxCartShow(true);
-  //   }
-  // }, []);
+  const {
+    state: { cart },
+    dispatch,
+  } = CartState();
 
   return (
     <S.Header>
       <div className="container">
         <S.WrapperFlex>
-          {isNavShow && (
-            <S.BackDrop onClick={handleNavShow} className="d-block d-lg-none" />
-          )}
+          {isNavShow && <S.BackDrop onClick={handleNavShow} className="d-block d-lg-none" />}
           <S.WrapLogo>
             <NavLink to="/">
               <S.Logo src={Logo} alt="logo" />
@@ -68,8 +64,48 @@ export default function Header() {
               </li>
               <li>
                 <S.WrapIconCart onClick={handleBoxCartShow}>
-                  <IconCart />
-                  <WrapNumCart />
+                  <IconCart onClick={handleBoxCartShow} />
+                  {cart.length > 0 ? <WrapNumCart>{cart.length}</WrapNumCart> : ''}
+
+                  <S.WrapFloatCartItem className={isBoxCartShow ? 'show' : 'hide'}>
+                    {cart.length > 0 ? (
+                      <>
+                        {cart.map((prod) => (
+                          <span className="d-flex align-center cartItem" key={prod.id}>
+                            <img src={prod.image} className="cartItemImg" alt={prod.name} />
+                            <div className="cartItemDetail">
+                              <span>{prod.name}</span>
+                              <span>
+                                {' '}
+                                {prod.price.split('.')[0]}
+                                {'.000'}.vnd
+                              </span>
+                            </div>
+                            <AiFillDelete
+                              fontSize="20px"
+                              style={{ cursor: 'pointer', marginLeft: '10px' }}
+                              onClick={() =>
+                                dispatch({
+                                  type: 'REMOVE_FROM_CART',
+                                  payload: prod,
+                                })
+                              }
+                            />
+                          </span>
+                        ))}
+
+                        <Button
+                          style={{ width: '95%', margin: '0 10px' }}
+                          onClick={() => handleDirectToCart()}
+                          isBlue
+                          isHover>
+                          Go To Cart
+                        </Button>
+                      </>
+                    ) : (
+                      <span style={{ padding: 10 }}>Cart is Empty!</span>
+                    )}
+                  </S.WrapFloatCartItem>
                 </S.WrapIconCart>
               </li>
               <li>

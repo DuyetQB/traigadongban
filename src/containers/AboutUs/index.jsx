@@ -93,7 +93,7 @@ export default function AboutUs() {
           </div>
         </S.WrapAboutUs>
       </div>
-      <ClientsSaid/>
+      <ClientsSaid />
     </AppLayout>
   );
 }

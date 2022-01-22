@@ -8,6 +8,13 @@ export const Header = styled.header`
   left: 0px;
   right: 0px;
   z-index: 144;
+
+  & .show {
+    display: block;
+  }
+  & .hide {
+    display: none;
+  }
 `;
 export const WrapperFlex = styled.div`
   display: flex;
@@ -132,4 +139,33 @@ export const WrapIconClose = styled.div`
   }
 `;
 
+export const WrapFloatCartItem = styled.div`
+  width: 460px;
+  padding: 5px;
+  border: 1px solid ${({ theme }) => theme.colors.grey1};
+  box-shadow: ${({ theme }) => theme.boxShadow.buttonBox};
+  position: absolute;
+  right: 20px;
+  background: ${({ theme }) => theme.colors.white1};
+  height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 120;
 
+  & .cartItem {
+    padding: 20px;
+    display: flex;
+  }
+  & .cartItemDetail {
+    padding-left: 10px;
+    flex: 1;
+  }
+
+  & .cartItemImg {
+    width: 140px;
+    height: 140px;
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+  }
+`;

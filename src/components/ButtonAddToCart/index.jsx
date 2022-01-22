@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./styled";
 
-function ButtonAddToCart({ handleClick, children, ...rest }) {
+function ButtonAddToCart({ children, ...rest }) {
   const [textBubble, setTextBubble] = useState(false);
   const [coordBubble, setCoordBubble] = useState({ x: -1, y: -1 });
 
-  const handleAddToCart = (handleClick = (e) => {
+  const handleAddToCart = (e) => {
     const clientX = e.clientX;
     const clientY = e.clientY;
     const rect = e.target.getBoundingClientRect();
     setCoordBubble({ x: clientX - rect.left, y: clientY - rect.top });
-  });
+  };
 
   useEffect(() => {
     if (coordBubble.x !== -1 && coordBubble.y !== -1) {
@@ -29,7 +29,7 @@ function ButtonAddToCart({ handleClick, children, ...rest }) {
   }, [textBubble]);
   return (
     <>
-      <S.AddToCart {...rest}>
+      <S.AddToCart onClick={handleAddToCart}>
         {children}
         {textBubble ? (
           <span

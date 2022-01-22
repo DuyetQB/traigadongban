@@ -17,9 +17,9 @@ export const WrapText = styled.div`
   `}
   }
 `;
-export const WrapImage = styled.div`
-  & img {
-    width: 100%;
-    object-fit: cover;
-  }
+export const WrapImageBannerChicken = styled.div``;
+
+export const ImageBannerChicken = styled.img`
+  width: 100%;
+  object-fit: cover;
 `;

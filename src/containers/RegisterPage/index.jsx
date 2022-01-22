@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as S from "./styled";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { schemaValidateSignUp } from "./constants";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -19,6 +19,7 @@ import IconArrowDown from "images/icon-arrow-down.png";
 
 const Register = () => {
   const [isShow, setIsShow] = useState(false);
+  const Navigate = useNavigate();
   const { t, i18n } = useTranslation("common");
   const [textLanguage, setTextLanguage] = useState(i18n.language);
   const {
@@ -28,7 +29,10 @@ const Register = () => {
   } = useForm({
     resolver: yupResolver(schemaValidateSignUp),
   });
-  const onSubmit = (data) => {};
+  const onSubmit = (data, event) => {
+    event.preventDefault();
+    Navigate("/login");
+  };
 
   const handleShowPopOver = () => {
     setIsShow(!isShow);

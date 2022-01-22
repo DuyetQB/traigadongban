@@ -56,6 +56,9 @@ export const WrapFloat = styled.div`
   left: 0px;
   right: 0px;
   padding: 20px;
+  background: rgba(255, 255, 255, 0.4);
+  color: ${({ theme }) => theme.colors.black};
+  border-radius: 0px 0px 20px 20px;
 `;
 
 export const WrapCollections = styled.div`

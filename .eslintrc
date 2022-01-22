@@ -1,0 +1,31 @@
+{
+  "env": {
+    "jest": true,
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "commonjs": true
+  },
+  "plugins": ["react"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "indent": ["warn", 2, { "SwitchCase": 1 }],
+    // quotes: ['error', 'single'],
+    "semi": ["error", "always"]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

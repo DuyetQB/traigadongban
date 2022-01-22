@@ -22,9 +22,12 @@ export default function Banner() {
             </S.WrapText>
           </div>
           <div className="col-md-7">
-            <S.WrapImage>
-              <img src={BannerChicken} alt="image banner" />
-            </S.WrapImage>
+            <S.WrapImageBannerChicken>
+              <S.ImageBannerChicken
+                src={BannerChicken}
+                alt="Image banner chicken"
+              />
+            </S.WrapImageBannerChicken>
           </div>
         </div>
       </S.WrapBanner>

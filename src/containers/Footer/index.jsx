@@ -43,6 +43,7 @@ export default function Footer() {
                   <a
                     href="https://www.facebook.com/Tr%E1%BA%A1i-g%C3%A0-%C4%90%C3%B4ng-Ban-109847811549112"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     Liên hệ qua facebook{" "}
                   </a>
